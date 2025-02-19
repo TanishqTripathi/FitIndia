@@ -1,0 +1,143 @@
+/* style.css */
+body {
+  font-family: sans-serif;
+  position:relative;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for theme change */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Space logo and links */
+  align-items: top;
+  position: relative;
+  padding: 1rem;
+  background-color: #f0f0f0; /* Light mode background */
+  color: #333; /* Light mode text */
+}
+
+.logo img {
+  height: 50px; /* Adjust as needed */
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333; /* Light mode link color */
+  padding: 5px 10px; /* Add some padding around links */
+  border-radius: 5px; /* Optional: Add rounded corners */
+  transition: color 0.3s ease; /* Smooth transition for link color */
+}
+
+.nav-links a:hover {
+  color: #007bff; /* Example hover color */
+}
+
+.mode-toggle {
+  margin-left: 20px; /* Space from nav links */
+}
+
+.mode-toggle button {
+  padding: 8px 16px;
+  background-color: #007bff; /* Example button color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for button color */
+}
+
+.mode-toggle button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #333; /* Dark mode background */
+  color: #f0f0f0; /* Dark mode text */
+}
+
+.navbar.dark-mode {
+  background-color: #222; /* Dark mode navbar background */
+  color: #f0f0f0; /* Dark mode navbar text */
+}
+
+.nav-links.dark-mode a {
+  color: #f0f0f0; /* Dark mode link color */
+}
+
+.nav-links.dark-mode a:hover {
+  color: #00aaff; /* Example hover color in dark mode */
+}
+
+.burger {
+  display: none; /* Hide burger menu by default on larger screens */
+  cursor: pointer;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: #333; /* Light mode burger color */
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .burger div {
+  background-color: #f0f0f0; /* Dark mode burger color */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .nav-links {
+      position: relative;
+      top: 80px; /* Adjust as needed */
+      left: 0;
+      width: 100%;
+      background-color: #f0f0f0; /* Light mode background */
+      flex-direction: column;
+      align-items: center;
+      transform: translateY(-100%); /* Hide initially */
+      transition: transform 0.3s ease;
+      z-index: 100; /* Ensure it's above other content */
+  }
+
+  body.dark-mode .nav-links {
+      background-color: #222; /* Dark mode background */
+  }
+
+  .nav-links li {
+      margin: 10px 0;
+  }
+
+  .nav-links.active {
+      transform: translateY(0); /* Show when active */
+  }
+
+  .burger {
+      display: block;
+  }
+
+  .burger.toggle .line1 {
+      transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .burger.toggle .line2 {
+      opacity: 0;
+  }
+
+  .burger.toggle .line3 {
+      transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
